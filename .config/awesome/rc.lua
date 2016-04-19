@@ -1,7 +1,5 @@
 -- Stasis' theme
 
--- I'm shit at lua lol.
-
 -- {{{ Required libraries
 local gears     = require("gears")
 local lain      = require("lain")
