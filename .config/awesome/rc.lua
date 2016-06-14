@@ -38,6 +38,30 @@ do
 end
 -- }}}
 
+-- Naughty notification settings
+-- naughty.config.defaults.font = "monospace 11"
+-- naughty.config.defaults.font  = beautiful.font 
+naughty.config.padding = 30
+naughty.config.spacing = 10
+-- naughty.config.defaults.icon_size = 50
+
+naughty.config.defaults.timeout          = 4
+naughty.config.defaults.screen           = 1
+naughty.config.defaults.position         = "top_right"
+naughty.config.defaults.margin           = 5
+naughty.config.defaults.height           = 60
+naughty.config.defaults.width            = 300
+naughty.config.defaults.gap              = 1
+naughty.config.defaults.ontop            = true
+naughty.config.defaults.font             = beautiful.font --or "monospace 8"
+naughty.config.defaults.icon             = nil
+naughty.config.defaults.icon_size        = 50
+naughty.config.defaults.fg               = beautiful.fg_focus --or '#ffffff'
+naughty.config.defaults.bg               = beautiful.bg_focus --or '#535d6c'
+-- naughty.config.presetss.border_color     = beautiful.border_focus or '#535d6c'
+-- naughty.config.defaults.border_width     = 1
+naughty.config.defaults.hover_timeout    = nil
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("~/.config/awesome/themes/sandbox/theme.lua")
@@ -164,7 +188,7 @@ bat_notification_low_preset = {
         title = "Battery low",
         text = "Plug the cable!",
         timeout = 15,
-        fg = "#202020",
+        fg = "#222222",
         bg = "#CDCDCD"
 }
 
@@ -191,6 +215,12 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
+
+
+-- Autostart
+awful.util.spawn_with_shell("dropbox") -- Dropbox
+awful.util.spawn_with_shell("DiscordCanary") -- Discord
+
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -284,6 +314,9 @@ for s = 1, screen.count() do
     right_layout:add(batwidget)
     right_layout:add(spr)
     right_layout:add(mytextclock)
+
+    -- testing
+    --right_layout:add(wibox.widget.systray())
 
     right_layout:add(mylayoutbox[s])
 
