@@ -219,7 +219,7 @@ mytextclock = awful.widget.textclock()
 
 -- Autostart
 awful.util.spawn_with_shell("dropbox") -- Dropbox
-awful.util.spawn_with_shell("DiscordCanary") -- Discord
+awful.util.spawn_with_shell("discord-canary") -- Discord
 
 
 -- Create a wibox for each screen and add it
